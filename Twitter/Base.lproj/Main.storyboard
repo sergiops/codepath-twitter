@@ -81,34 +81,44 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Jon Doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xF8-U4-eNr">
-                                            <rect key="frame" x="73" y="10" width="287" height="21"/>
+                                            <rect key="frame" x="73" y="10" width="66.5" height="21"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello twitter!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFF-w9-dtf">
-                                            <rect key="frame" x="73" y="35" width="287" height="55"/>
+                                            <rect key="frame" x="73" y="33" width="287" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="@screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00m-gx-fxb">
+                                            <rect key="frame" x="144.5" y="10" width="67" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="xF8-U4-eNr" firstAttribute="top" secondItem="AdM-Bl-Jzj" secondAttribute="top" constant="10" id="3yJ-py-eDD"/>
                                         <constraint firstItem="qQu-PF-rPC" firstAttribute="top" secondItem="AdM-Bl-Jzj" secondAttribute="top" constant="10" id="CPJ-PE-T2m"/>
-                                        <constraint firstAttribute="trailing" secondItem="xF8-U4-eNr" secondAttribute="trailing" constant="15" id="EMe-xR-0iO"/>
                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="qQu-PF-rPC" secondAttribute="bottom" constant="10" id="EPE-Mk-be8"/>
+                                        <constraint firstItem="00m-gx-fxb" firstAttribute="top" secondItem="AdM-Bl-Jzj" secondAttribute="top" constant="10" id="GRr-bo-VH5"/>
                                         <constraint firstItem="qQu-PF-rPC" firstAttribute="leading" secondItem="AdM-Bl-Jzj" secondAttribute="leading" constant="15" id="Ji4-Lx-tG1"/>
+                                        <constraint firstItem="UFF-w9-dtf" firstAttribute="top" secondItem="00m-gx-fxb" secondAttribute="bottom" constant="2" id="KTx-Ni-1mC"/>
                                         <constraint firstItem="xF8-U4-eNr" firstAttribute="leading" secondItem="qQu-PF-rPC" secondAttribute="trailing" constant="8" id="OiS-fn-ddM"/>
                                         <constraint firstAttribute="trailing" secondItem="UFF-w9-dtf" secondAttribute="trailing" constant="15" id="VJx-XL-UcD"/>
+                                        <constraint firstItem="00m-gx-fxb" firstAttribute="leading" secondItem="xF8-U4-eNr" secondAttribute="trailing" constant="5" id="ccl-5l-08W"/>
                                         <constraint firstItem="UFF-w9-dtf" firstAttribute="leading" secondItem="qQu-PF-rPC" secondAttribute="trailing" constant="8" id="eit-5V-W53"/>
-                                        <constraint firstAttribute="bottom" secondItem="UFF-w9-dtf" secondAttribute="bottom" constant="10" id="ssX-C1-Xnr"/>
-                                        <constraint firstItem="UFF-w9-dtf" firstAttribute="top" secondItem="xF8-U4-eNr" secondAttribute="bottom" constant="4" id="yNi-Vt-oBD"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="UFF-w9-dtf" secondAttribute="bottom" constant="10" id="ssX-C1-Xnr"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="00m-gx-fxb" secondAttribute="trailing" constant="15" id="y76-fC-JrO"/>
+                                        <constraint firstItem="UFF-w9-dtf" firstAttribute="top" secondItem="xF8-U4-eNr" secondAttribute="bottom" constant="2" id="yNi-Vt-oBD"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="name" destination="xF8-U4-eNr" id="hM7-6p-x29"/>
                                     <outlet property="profileImage" destination="qQu-PF-rPC" id="ygn-vD-I3t"/>
+                                    <outlet property="screenName" destination="00m-gx-fxb" id="Vr2-5A-T2E"/>
                                     <outlet property="tweetText" destination="UFF-w9-dtf" id="ISK-cP-Vyf"/>
                                 </connections>
                             </tableViewCell>

@@ -23,7 +23,7 @@ class TweetTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         let home_timeline = "https://api.twitter.com/1.1/statuses/home_timeline.json"
-        let params = ["count": 10]
+        let params = ["count": 15]
         self.requestTweets(baseUrl: home_timeline, params: params)
     }
 
@@ -48,6 +48,7 @@ class TweetTableViewController: UITableViewController {
         let imageUrl = URL(string: user_profile_image_url)
         
         cell.name.text = (user["name"] as! String)
+        cell.screenName.text = "@" + (user["screen_name"] as! String)
         cell.tweetText.text = (activeTweet["text"] as! String)
         cell.profileImage.af_setImage(withURL: imageUrl!)
 
