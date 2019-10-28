@@ -44,12 +44,17 @@ class TweetTableViewController: UITableViewController {
         
         let activeTweet = self.tweetList[indexPath.row]
         let user = (activeTweet["user"] as! [String: Any])
+        
+        let fav_count = (activeTweet["favorite_count"] as! Int)
+        let rt_count = (activeTweet["retweet_count"] as! Int)
         let user_profile_image_url = (user["profile_image_url_https"] as! String)
         let imageUrl = URL(string: user_profile_image_url)
         
         cell.name.text = (user["name"] as! String)
         cell.screenName.text = "@" + (user["screen_name"] as! String)
         cell.tweetText.text = (activeTweet["text"] as! String)
+        cell.retweetCount.text = String(rt_count)
+        cell.favoriteCount.text = String(fav_count)
         cell.profileImage.af_setImage(withURL: imageUrl!)
 
         return cell
