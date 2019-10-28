@@ -19,7 +19,7 @@ class ProfileViewController: UIViewController {
     @IBAction func onLogoutButton(_ sender: Any) {
         self.performSegue(withIdentifier: "LogoutSegue", sender: self)
         UserDefaults.standard.set(false, forKey: "isLoggedIn")
-        //TwitterAPICaller.client?.logout()
+        TwitterAPICaller.client?.logout()
     }
     
     /*

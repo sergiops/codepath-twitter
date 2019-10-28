@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class TweetTableViewController: UITableViewController {
     
@@ -35,11 +36,20 @@ class TweetTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return tweetList.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetTableViewCell", for: indexPath) as! TweetTableViewCell
+        
+        let activeTweet = self.tweetList[indexPath.row]
+        let user = (activeTweet["user"] as! [String: Any])
+        let user_profile_image_url = (user["profile_image_url_https"] as! String)
+        let imageUrl = URL(string: user_profile_image_url)
+        
+        cell.name.text = (user["name"] as! String)
+        cell.tweetText.text = (activeTweet["text"] as! String)
+        cell.profileImage.af_setImage(withURL: imageUrl!)
 
         return cell
     }
@@ -50,8 +60,7 @@ class TweetTableViewController: UITableViewController {
                                                         parameters: params,
                                                         success: { (tweets: [NSDictionary]) in
                                                             self.tweetList = tweets
-                                                            print(self.tweetList)
-                                                            //tableView.reloadData()
+                                                            self.tableView.reloadData()
         },
                                                         failure: { (Error) in
                                                             print("Could not load tweets.")
