@@ -22,9 +22,6 @@ class TweetTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        let home_timeline = "https://api.twitter.com/1.1/statuses/home_timeline.json"
-        let params = ["count": 15]
-        self.requestTweets(baseUrl: home_timeline, params: params)
     }
 
     // MARK: - Table view data source
@@ -61,7 +58,7 @@ class TweetTableViewController: UITableViewController {
     }
     
     // MARK: - Network Calls
-    private func requestTweets(baseUrl: String, params: [String: Any]) {
+    func requestTweets(baseUrl: String, params: [String: Any]) {
         TwitterAPICaller.client?.getDictionariesRequest(url: baseUrl,
                                                         parameters: params,
                                                         success: { (tweets: [NSDictionary]) in
