@@ -9,11 +9,15 @@
 import UIKit
 import AlamofireImage
 
-class TweetTableViewController: UITableViewController {
+protocol TweetTableCellProtocol {
+    func updateFavoriteTweet(id: Int, new_count: Int)
+    func updateRetweet(id: Int, new_count: Int)
+}
+
+class TweetTableViewController: UITableViewController, TweetTableCellProtocol {
     
     var tweetList = [NSDictionary]()
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -61,6 +65,7 @@ class TweetTableViewController: UITableViewController {
         cell.profileImage.af_setImage(withURL: imageUrl!)
         cell.setFavorite(activeTweet["favorited"] as! Bool)
         cell.setRetweet(activeTweet["retweeted"] as! Bool)
+        cell.cellDelegate = self as TweetTableCellProtocol
 
         return cell
     }
@@ -78,6 +83,15 @@ class TweetTableViewController: UITableViewController {
                                                         failure: { (Error) in
                                                             print("Could not load tweets.")
         })
+    }
+    
+    // MARK: - Protocols
+    func updateFavoriteTweet(id: Int, new_count: Int) {
+        self.requestTweets()
+    }
+    
+    func updateRetweet(id: Int, new_count: Int) {
+        self.requestTweets()
     }
 
     /*

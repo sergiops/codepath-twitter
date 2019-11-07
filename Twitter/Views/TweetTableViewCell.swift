@@ -10,19 +10,21 @@ import UIKit
 
 class TweetTableViewCell: UITableViewCell {
     
-    // MARK: - Properties
+    // MARK: - Outlets
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var tweetText: UILabel!
     @IBOutlet weak var screenName: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var retweetCount: UILabel!
     @IBOutlet weak var favoriteCount: UILabel!
-    
     @IBOutlet weak var retweetIcon: UIImageView!
     @IBOutlet weak var favoriteIcon: UIImageView!
+    
+    // MARK: - Properties
     var isFavorite: Bool!
     var isRetweeted: Bool!
     var tweetId: Int!
+    var cellDelegate: TweetTableCellProtocol?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -62,7 +64,9 @@ class TweetTableViewCell: UITableViewCell {
             TwitterAPICaller.client?.unFavoriteTweet(tweetId: self.tweetId,
             success: {
                 self.setFavorite(false)
-                self.favoriteCount.text = String(Int(self.favoriteCount.text!)! - 1)
+                let newFavCount = Int(self.favoriteCount.text!)! - 1
+                self.favoriteCount.text = String(newFavCount)
+                self.cellDelegate?.updateFavoriteTweet(id: self.tweetId, new_count: newFavCount)
                 },
             failure: { (error) in
                 print("Unfavorite did not succeed: \(error)")
@@ -71,7 +75,9 @@ class TweetTableViewCell: UITableViewCell {
             TwitterAPICaller.client?.favoriteTweet(tweetId: self.tweetId,
             success: {
                 self.setFavorite(true)
-                self.favoriteCount.text = String(Int(self.favoriteCount.text!)! + 1)
+                let newFavCount = Int(self.favoriteCount.text!)! + 1
+                self.favoriteCount.text = String(newFavCount)
+                self.cellDelegate?.updateFavoriteTweet(id: self.tweetId, new_count: newFavCount)
                 },
             failure: { (error) in
                 print("Favorite did not succeed: \(error)")
@@ -104,7 +110,9 @@ class TweetTableViewCell: UITableViewCell {
             TwitterAPICaller.client?.unRetweet(tweetId: self.tweetId,
             success: {
                 self.setRetweet(false)
-                self.retweetCount.text = String(Int(self.retweetCount.text!)! - 1)
+                let newRtCount = Int(self.retweetCount.text!)! - 1
+                self.retweetCount.text = String(newRtCount)
+                self.cellDelegate?.updateRetweet(id: self.tweetId, new_count: newRtCount)
                 },
             failure: { (error) in
                 print("Unretweet did not succeed: \(error)")
@@ -113,7 +121,9 @@ class TweetTableViewCell: UITableViewCell {
             TwitterAPICaller.client?.retweet(tweetId: self.tweetId,
             success: {
                 self.setRetweet(true)
-                self.retweetCount.text = String(Int(self.retweetCount.text!)! + 1)
+                let newRtCount = Int(self.retweetCount.text!)! + 1
+                self.retweetCount.text = String(newRtCount)
+                self.cellDelegate?.updateRetweet(id: self.tweetId, new_count: newRtCount)
                 },
             failure: { (error) in
                 print("Retweet did not succeed: \(error)")
