@@ -208,16 +208,77 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Home" id="Fmo-Qx-PLT">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="person.circle" catalog="system" id="b6g-8e-SVj">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="line.horizontal.3" catalog="system" id="b6g-8e-SVj">
                             <connections>
                                 <segue destination="x56-fG-Gqo" kind="show" id="brQ-qi-rpf"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="square.and.pencil" catalog="system" id="5jE-qD-BwT">
+                            <connections>
+                                <segue destination="xQd-lg-Drk" kind="presentation" id="SeC-ve-83T"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OCl-Ca-YwX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-983.20000000000005" y="1311.9940029985009"/>
+            <point key="canvasLocation" x="-982" y="704"/>
+        </scene>
+        <!--Compose Tweet View Controller-->
+        <scene sceneID="dcg-6V-iFO">
+            <objects>
+                <viewController id="xQd-lg-Drk" customClass="ComposeTweetViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="L3G-eV-Ws9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bla-0N-R3H">
+                                <rect key="frame" x="15" y="25" width="53" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="onCancel:" destination="xQd-lg-Drk" eventType="touchUpInside" id="flu-UF-JyG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yzH-oH-GsO">
+                                <rect key="frame" x="313" y="25" width="47" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Tweet"/>
+                                <connections>
+                                    <action selector="onTweet:" destination="xQd-lg-Drk" eventType="touchUpInside" id="58L-fP-hUR"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rPA-aZ-NOV">
+                                <rect key="frame" x="15" y="83" width="345" height="150"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="rs0-U0-me5"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="yzH-oH-GsO" firstAttribute="trailing" secondItem="tJg-PN-VZc" secondAttribute="trailing" constant="-15" id="1bv-d0-mgf"/>
+                            <constraint firstItem="Bla-0N-R3H" firstAttribute="top" secondItem="tJg-PN-VZc" secondAttribute="top" constant="25" id="4i3-8H-uaf"/>
+                            <constraint firstItem="Bla-0N-R3H" firstAttribute="leading" secondItem="tJg-PN-VZc" secondAttribute="leading" constant="15" id="7pA-He-4ac"/>
+                            <constraint firstItem="rPA-aZ-NOV" firstAttribute="leading" secondItem="tJg-PN-VZc" secondAttribute="leading" constant="15" id="LhL-Pk-som"/>
+                            <constraint firstItem="rPA-aZ-NOV" firstAttribute="trailing" secondItem="tJg-PN-VZc" secondAttribute="trailing" constant="-15" id="Ys2-22-d0P"/>
+                            <constraint firstItem="rPA-aZ-NOV" firstAttribute="top" secondItem="Bla-0N-R3H" secondAttribute="bottom" constant="25" id="lCl-oO-km3"/>
+                            <constraint firstItem="yzH-oH-GsO" firstAttribute="top" secondItem="tJg-PN-VZc" secondAttribute="top" constant="25" id="zCe-3J-tfd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tJg-PN-VZc"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="cZt-Pv-LAz"/>
+                    <connections>
+                        <outlet property="tweetTextView" destination="rPA-aZ-NOV" id="yMf-Wd-bcf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jPT-RQ-ruM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-983.20000000000005" y="1471.2143928035982"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="iPg-d2-Iqt">
@@ -250,7 +311,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kaW-kg-EzZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="220" y="1312"/>
+            <point key="canvasLocation" x="-1" y="704"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Lx1-5L-dCZ">
@@ -275,6 +336,7 @@
     <resources>
         <image name="arrow.2.squarepath" catalog="system" width="64" height="46"/>
         <image name="heart" catalog="system" width="64" height="58"/>
-        <image name="person.circle" catalog="system" width="64" height="62"/>
+        <image name="line.horizontal.3" catalog="system" width="64" height="32"/>
+        <image name="square.and.pencil" catalog="system" width="64" height="58"/>
     </resources>
 </document>
