@@ -14,7 +14,6 @@ class ComposeTweetViewController: UIViewController {
     @IBOutlet weak var tweetTextView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
         tweetTextView.becomeFirstResponder()
     }
     
@@ -32,11 +31,12 @@ class ComposeTweetViewController: UIViewController {
         TwitterAPICaller.client?.postTweet(text: tweet,
         success: {
             print("Tweet posted!")
+            self.dismiss(animated: true, completion: nil)
             },
         failure: {(error) in
             print("Failed to post tweet: \(error)")
+            self.dismiss(animated: true, completion: nil)
             })
-        self.dismiss(animated: true, completion: nil)
     }
     
     /*

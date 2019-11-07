@@ -215,7 +215,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="square.and.pencil" catalog="system" id="5jE-qD-BwT">
                             <connections>
-                                <segue destination="xQd-lg-Drk" kind="presentation" id="SeC-ve-83T"/>
+                                <segue destination="xQd-lg-Drk" kind="presentation" modalPresentationStyle="fullScreen" id="SeC-ve-83T"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -229,7 +229,7 @@
             <objects>
                 <viewController id="xQd-lg-Drk" customClass="ComposeTweetViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L3G-eV-Ws9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bla-0N-R3H">

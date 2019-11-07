@@ -33,16 +33,4 @@ class LoginViewController: UIViewController {
         })
     }
     
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        let destination = segue.destination as! TweetTableViewController
-        let home_timeline = "https://api.twitter.com/1.1/statuses/home_timeline.json"
-        let params = ["count": 15]
-        destination.requestTweets(baseUrl: home_timeline, params: params)
-    }
-
 }
